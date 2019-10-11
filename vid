@@ -36,7 +36,7 @@ cd Video/$date_now
 # -cvjf сжатие bzip2 и tar.bz2 расширение ставим, 
 # но не работает на Смартфоне как и нужная мне
 # опция --remove-files
-tar -cvf $date_time.tar *.mp4 
+tar -cvf Video_$date_time.tar *.mp4 
 
 # вводим на экран подтверждение с просьбой нажать Enter  
 clear
