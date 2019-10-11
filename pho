@@ -1,4 +1,4 @@
-# скрипт для сохранения видео!
+# скрипт для сохранения фоток!
 clear 
 
 # создаем переменную текущей даты в нужном формате
@@ -21,31 +21,31 @@ mkdir DCIM/Camera/Video/$date_now
 # переходим в папку Video
 cd DCIM/Camera/Video/
 
-# переходим в папку Camera куда видео по дефолту попадают..
+# переходим в папку Camera куда фотки по дефолту попадают..
 cd ..
 
 # ...и перемешаем их куда надо
-mv *.mp4 Video/$date_now
+mv *.jpg Video/$date_now
 
 # переходим в папку видео и дата
 cd Video/$date_now
 
-# упаковываем tar наши видео 
+# упаковываем tar наши фотки 
 # -cvf без сжатия, 
 # -cvzf сжатие gzip и tar.gz расширение ставим
 # -cvjf сжатие bzip2 и tar.bz2 расширение ставим, 
 # но не работает на Смартфоне как и нужная мне
 # опция --remove-files
-tar -cvf "$date_time"_video.tar *.mp4 
+tar -cvf "$date_time"_photos.tar *.jpg 
 
 # вводим на экран подтверждение с просьбой нажать Enter  
 clear
-echo Check TAR archieve and if all OK, original MP4 and JPG files will be deleted!!! 
+echo Check TAR archieve and if all OK, original JPG files will be deleted!!! 
 echo Press [Enter] key to continue... 
 read
 
-# удаляем исходные файлы видео  
-rm -f /storage/emulated/0/DCIM/Camera/Video/$date_now/*.mp4
+# удаляем исходные файлы фоток  
+rm -f /storage/emulated/0/DCIM/Camera/Video/$date_now/*.jpg
 
 # этой командой можно разрезать файл на 
 # равные куски по 50 Мб! правда имена
