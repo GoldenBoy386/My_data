@@ -1,3 +1,4 @@
+# тест
 clear
 # date_now=$(date +%Y-%m-%d) 
 date_now=$(date +%d-%m-%Y) 
