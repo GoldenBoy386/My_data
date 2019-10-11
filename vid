@@ -1,6 +1,5 @@
 # скрипт для сохранения видео!
-clear
-# date_now=$(date +%Y-%m-%d) - пробовал 
+clear 
 
 # создаем переменную текущей даты в нужном формате
 date_now=$(date +%d-%m-%Y) 
@@ -18,9 +17,6 @@ date_time=$(date +%d-%m-%Y_%H-%M-%S)
 
 # Папку с датой создаем
 mkdir DCIM/Camera/Video/$date_now
-
-# в Папке с датой создаем подпапку Photo
-mkdir DCIM/Camera/Video/$date_now/Photo
 
 # переходим в папку Video
 cd DCIM/Camera/Video/
