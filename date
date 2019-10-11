@@ -1,0 +1,77 @@
+clear
+# date_now=$(date +%Y-%m-%d) - пробовал 
+
+# создаем переменную текущей даты в нужном формате
+date_now=$(date +%d-%m-%Y) 
+echo $date_now
+
+# создаем переменную текущей даты и 
+# времени в нужном формате. 
+# специально создал эту переменную для 
+# того, чтобы каждый раз заново создавался
+# архив tar, Так как эти архивы не умеют
+# обновляться, и при повторном запуске 
+# скрипта, с функцией удаления исходных  
+# файлов, можно было потерять эти файлы.
+date_time=$(date +%d-%m-%Y_%H-%M-%S)
+
+# Папку с датой создаем
+mkdir DCIM/Camera/Video/$date_now
+
+# в Папке с датой создаем подпапку Photo
+mkdir DCIM/Camera/Video/$date_now/Photo
+
+# переходим в папку Video
+cd DCIM/Camera/Video/
+
+# переходим в папку Camera куда видео по дефолту попадают..
+cd ..
+
+# ...и перемешаем их куда надо
+mv *.mp4 Video/$date_now
+
+# переносим все фото в папку с датой
+mv *.jpg Video/$date_now/Photo
+
+# переходим в папку видео и дата
+cd Video/$date_now
+
+# упаковываем tar наши фото и видео 
+# -cvf без сжатия, 
+# -cvzf сжатие gzip и tar.gz расширение ставим
+# -cvjf сжатие bzip2 и tar.bz2 расширение ставим, 
+# но не работает на Смартфоне как и нужная мне
+# опция --remove-files
+tar -cvf $date_time.tar  *.mp4 Photo/*.jpg
+
+# вводим на экран подтверждение с просьбой нажать Enter  
+clear
+echo Check TAR archieve and if all OK, original MP4 and JPG files will be deleted!!! 
+echo Press [Enter] key to continue... 
+read
+
+# удаляем исходные файлы видео  
+rm -f /storage/emulated/0/DCIM/Camera/Video/$date_now/*.mp4
+
+# удаляем исходные файлы фотографий
+rm -r /storage/emulated/0/DCIM/Camera/Video/$date_now/Photo
+
+# этой командой можно разрезать файл на 
+# равные куски по 50 Мб! правда имена
+# файлов будут при этом на конце буквенные. 
+# склеивать потом 
+# командой cat test.tar.* > test.tar.
+# Удивительно, но это работает, и очень 
+# быстро, я проверял!  
+# split -b 50m $date_time.tar $date_time.tar.
+
+# тест бэкапа 
+# cp -p /storage/emulated/0/gokeyboard/*.txt /storage/emulated/0/!My_data/backups/GoKeyboard
+
+# cp -p /storage/emulated/0/gokeyboard/*.dat /storage/emulated/0/!My_data/backups/GoKeyboard
+
+# создаем архив
+# tar -cvf /storage/emulated/0/$date_now.tar /storage/emulated/0/date
+
+
+# echo $(date +%Y-%m-%d)
