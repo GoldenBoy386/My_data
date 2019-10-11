@@ -1,4 +1,4 @@
-# тест
+# тест этот utf-8
 clear
 # date_now=$(date +%Y-%m-%d) 
 date_now=$(date +%d-%m-%Y) 
