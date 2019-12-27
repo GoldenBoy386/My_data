@@ -64,6 +64,9 @@ rm -f /storage/emulated/0/DCIM/Camera/Video/$date_now/*.mp4
 # удал€ем исходные файлы фотографий
 rm -r /storage/emulated/0/DCIM/Camera/Video/$date_now/Photo
 
+# удал€ем исходные файлы mp3 
+rm -r /storage/emulated/0/DCIM/Camera/Video/$date_now/Audio
+
 # этой командой можно разрезать файл на 
 # равные куски по 50 ћб! правда имена
 # файлов будут при этом на конце буквенные. 
