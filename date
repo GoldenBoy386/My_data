@@ -23,6 +23,9 @@ mkdir DCIM/Camera/Video/$date_now
 # в Папке с датой создаем подпапку Photo
 mkdir DCIM/Camera/Video/$date_now/Photo
 
+# в Папке с датой создаем подпапку Audio
+mkdir DCIM/Camera/Video/$date_now/Audio
+
 # переходим в папку Video
 cd DCIM/Camera/Video/
 
@@ -35,6 +38,9 @@ mv *.mp4 Video/$date_now
 # переносим все фото в папку с датой
 mv *.jpg Video/$date_now/Photo
 
+# переносим все аудио в папку с датой
+mv *.mp3 Video/$date_now/Audio
+
 # переходим в папку видео и дата
 cd Video/$date_now
 
@@ -44,7 +50,7 @@ cd Video/$date_now
 # -cvjf сжатие bzip2 и tar.bz2 расширение ставим, 
 # но не работает на Смартфоне как и нужная мне
 # опция --remove-files
-tar -cvf $date_time.tar  *.mp4 Photo/*.jpg
+tar -cvf $date_time.tar  *.mp4 Photo/*.jpg Audio/*.mp3
 
 # вводим на экран подтверждение с просьбой нажать Enter  
 clear
