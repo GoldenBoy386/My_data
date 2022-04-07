@@ -26,6 +26,7 @@ cd ..
 
 # ...и перемешаем их куда надо
 mv *.jpg Video/$date_now
+mv *.heic Video/$date_now
 
 # переходим в папку видео и дата
 cd Video/$date_now
@@ -37,6 +38,7 @@ cd Video/$date_now
 # но не работает на Смартфоне как и нужная мне
 # опция --remove-files
 tar -cvf "$date_time"_Photos.tar *.jpg 
+tar -cvf "$date_time"_Photos.tar *.heic
 
 # вводим на экран подтверждение с просьбой нажать Enter  
 clear
@@ -46,6 +48,7 @@ read
 
 # удаляем исходные файлы фоток  
 rm -f /storage/emulated/0/DCIM/Camera/Video/$date_now/*.jpg
+rm -f /storage/emulated/0/DCIM/Camera/Video/$date_now/*.heic
 
 # этой командой можно разрезать файл на 
 # равные куски по 50 Мб! правда имена
