@@ -56,5 +56,5 @@ rm -f /storage/emulated/0/DCIM/Camera/Video/$date_now/*.heic
 # склеивать потом 
 # командой cat test.tar.* > test.tar.
 # ”дивительно, но это работает, и очень 
-# быстро, € провер€л!  
-# split -b 50m $date_time.tar $date_time.tar.
+# быстро, € провер€л!    
+# split -b 50m $date_time.tar $date_time.tar. 
